@@ -5,56 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Personal Homepage</title>
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif; 
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        :root {
+            --page-max-width: 1180px;
+            --page-padding: 34px;
+            --surface: rgba(255, 255, 255, 0.92);
+            --border: rgba(42, 63, 95, 0.12);
+            --text: #243041;
+            --muted: #5f6b7a;
+            --accent: #0a5ea8;
         }
-        h1 { color: #004b87; } /* Titile Color */
-        h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; color: #222; }
-        a { color: #0066cc; text-decoration: none; }
+        body {
+            font-family: Georgia, 'Palatino Linotype', 'Times New Roman', serif;
+            line-height: 1.72;
+            color: var(--text);
+            max-width: var(--page-max-width);
+            margin: 24px auto 40px;
+            padding: var(--page-padding);
+            background: linear-gradient(180deg, #f6f8fc 0%, #ffffff 100%);
+        }
+        h1 {
+            color: var(--accent);
+            font-size: clamp(2.2rem, 3vw, 3rem);
+            line-height: 1.1;
+            margin: 0 0 10px;
+        }
+        h2 {
+            border-bottom: 1px solid rgba(42, 63, 95, 0.18);
+            padding-bottom: 8px;
+            color: #1f2937;
+            margin-top: 30px;
+            margin-bottom: 16px;
+            font-size: 1.35rem;
+        }
+        p, li { font-size: 1.02rem; }
+        a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
         .header-info {
             display: flex;
-            gap: 24px;
-            align-items: flex-start;
-            margin-bottom: 30px;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 34px;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--surface);
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
         }
         .header-info-text {
             flex: 1;
             min-width: 0;
         }
-        .about-me {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-        .about-me-text {
-            flex: 1;
-            min-width: 0;
-        }
         .profile-photo {
-            width: 170px;
-            flex: 0 0 170px;
+            width: 176px;
+            flex: 0 0 176px;
         }
         .profile-photo img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
+            border-radius: 18px;
             object-fit: cover;
             display: block;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 24px rgba(30, 41, 59, 0.10);
         }
-        .news-list li { margin-bottom: 10px; }
-        .publication-list li { margin-bottom: 10px; }
-        .highlight { font-weight: bold; }
+        .section-card {
+            padding: 2px 0;
+        }
+        .about-me-text {
+            max-width: 72ch;
+        }
+        .news-list,
+        .publication-list {
+            padding-left: 22px;
+        }
+        .news-list li,
+        .publication-list li {
+            margin-bottom: 12px;
+        }
+        .news-date {
+            display: inline-block;
+            min-width: 78px;
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+        }
         @media (max-width: 640px) {
-            .header-info,
-            .about-me {
+            body {
+                margin: 12px auto 24px;
+                padding: 18px;
+            }
+            .header-info {
                 flex-direction: column;
+                align-items: flex-start;
             }
             .profile-photo {
                 width: 100%;
@@ -83,42 +125,49 @@
     </div>
 
     <!-- About me -->
-    <h2>About Me</h2>
-    <div class="about-me">
+    <section class="section-card">
+        <h2>About Me</h2>
         <div class="about-me-text">
             <p>Currently, I am a second-year Ph.D. student in the Department of Mathematics at The University of Hong Kong, where I am fortunate to be advised by <a href="https://leiyw.github.io/">Prof. Yunwen Lei</a>. I earned my Bachelor of Science degree from Sun Yat-sen University in 2023. My primary research interests include statistical machine learning and optimization.</p>
         </div>
-    </div>
+    </section>
 
     <!-- News -->
-    <h2>News</h2>
-    <ul class="news-list">
-        <li>I gave a presentation at the <a href="https://icim-2026.com/english/index_en.html">I International Congress of Mathematics (ICIM 2026)</a> entitled <em>Sharper Generalization Guarantees for Asynchronous SGD</em>.</li>
-    </ul>
+    <section class="section-card">
+        <h2>News</h2>
+        <ul class="news-list">
+            <li><span class="news-date">[2026-05]</span> I gave a presentation at the <a href="https://icim-2026.com/english/index_en.html">I International Congress of Mathematics (ICIM 2026)</a> entitled <em>Sharper Generalization Guarantees for Asynchronous SGD</em>.</li>
+            <li><span class="news-date">[2026-06]</span> Our paper titled "<a href="https://icml.cc/virtual/2026/poster/62429">Sharper Generalization Guarantees for Asynchronous SGD: Beyond Lipschitzness, Smoothness and Data Homogeneity</a>" has been accepted as a poster presentation at ICML 2026.</li>
+        </ul>
+    </section>
 
     <!-- Publications -->
-    <h2>Research</h2>
-    <!-- <h3>Journal Publications</h3> -->
-    <ul class="publication-list">
-        <li>
-            Y. Xie and Y. Lei. "<a href="https://icml.cc/virtual/2026/poster/62429">Sharper Generalization Guarantees for Asynchronous SGD: Beyond Lipschitzness, Smoothness and Data Homogeneity</a>". 
-            In International Conference on Machine Learning, 2026.
-        </li>
-        <li>
-            Y. Xie and Y. Lei. "<a href="https://arxiv.org/pdf/2604.00505">Towards Initialization-dependent and Non-vacuous Generalization Bounds for Overparameterized Shallow Neural Networks</a>". 
-            <em>arXiv preprint</em>, 2026.
-        </li>
-        <li>
-            Y. Xie, H. Wu, H. Tong. L. Xiao, W. Zhou and TC Wanger "<a href="https://arxiv.org/abs/2501.12487">fabSAM: A Farmland Boundary Delineation Method Based on the Segment Anything Model</a>". 
-            <em>arXiv preprint</em>, 2025.
-        </li>
-    </ul>
+    <section class="section-card">
+        <h2>Research</h2>
+        <!-- <h3>Journal Publications</h3> -->
+        <ul class="publication-list">
+            <li>
+                Y. Xie and Y. Lei. "<a href="https://icml.cc/virtual/2026/poster/62429">Sharper Generalization Guarantees for Asynchronous SGD: Beyond Lipschitzness, Smoothness and Data Homogeneity</a>".
+                In International Conference on Machine Learning, 2026.
+            </li>
+            <li>
+                Y. Xie and Y. Lei. "<a href="https://arxiv.org/pdf/2604.00505">Towards Initialization-dependent and Non-vacuous Generalization Bounds for Overparameterized Shallow Neural Networks</a>".
+                <em>arXiv preprint</em>, 2026.
+            </li>
+            <li>
+                Y. Xie, H. Wu, H. Tong. L. Xiao, W. Zhou and TC Wanger "<a href="https://arxiv.org/abs/2501.12487">fabSAM: A Farmland Boundary Delineation Method Based on the Segment Anything Model</a>".
+                <em>arXiv preprint</em>, 2025.
+            </li>
+        </ul>
+    </section>
 
     <!-- Academic Service -->
-    <h2>Academic Service</h2>
-    <p>Silver Reviewer at ICML 2026.<p>
-    <p><strong>Conference Reviewer:</strong> ICML 2026, NIPS 2026</p>
-    <p><strong>Journal Reviewer:</strong> <a href="https://link.springer.com/journal/10994">Machine Learning</a>, <a href="https://www.jmlr.org/tmlr/">Transactions on Machine Learning Research</a>, <a href="https://www.aimsciences.org/mfc">Mathematical Foundations of Computing</a></p>
+    <section class="section-card">
+        <h2>Academic Service</h2>
+        <p>Silver Reviewer at ICML 2026.</p>
+        <p><strong>Conference Reviewer:</strong> ICML 2026, NIPS 2026</p>
+        <p><strong>Journal Reviewer:</strong> <a href="https://link.springer.com/journal/10994">Machine Learning</a>, <a href="https://www.jmlr.org/tmlr/">Transactions on Machine Learning Research</a>, <a href="https://www.aimsciences.org/mfc">Mathematical Foundations of Computing</a></p>
+    </section>
 
 </body>
 </html>
