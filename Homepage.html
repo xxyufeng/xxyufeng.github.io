@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Homepage</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; 
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { color: #004b87; } /* Titile Color */
+        h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; color: #222; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .header-info {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        .header-info-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .about-me {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .about-me-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .profile-photo {
+            width: 170px;
+            flex: 0 0 170px;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #ddd;
+        }
+        .news-list li { margin-bottom: 10px; }
+        .publication-list li { margin-bottom: 10px; }
+        .highlight { font-weight: bold; }
+        @media (max-width: 640px) {
+            .header-info,
+            .about-me {
+                flex-direction: column;
+            }
+            .profile-photo {
+                width: 100%;
+                flex-basis: auto;
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Head Information -->
+    <div class="header-info">
+        <div class="profile-photo">
+            <img src="image.jpg" alt="Personal photo of Yufeng Xie">
+        </div>
+        <div class="header-info-text">
+            <h1>Yufeng Xie (谢宇峰)</h1>
+            <p>
+                PhD Student<br>
+                Department of Mathematics<br>
+                The University of Hong Kong<br>
+                E-mail: yufeng.xie [@] connect.hku.hk
+            </p>
+        </div>
+    </div>
+
+    <!-- About me -->
+    <h2>About Me</h2>
+    <div class="about-me">
+        <div class="about-me-text">
+            <p>Currently, I am a second-year Ph.D. student in the Department of Mathematics at The University of Hong Kong, where I am fortunate to be advised by <a href="https://leiyw.github.io/">Prof. Yunwen Lei</a>. I earned my Bachelor of Science degree from Sun Yat-sen University in 2023. My primary research interests include statistical machine learning and optimization.</p>
+        </div>
+    </div>
+
+    <!-- News -->
+    <h2>News</h2>
+    <ul class="news-list">
+        <li>I gave a presentation at the <a href="https://icim-2026.com/english/index_en.html">I International Congress of Mathematics (ICIM 2026)</a> entitled <em>Sharper Generalization Guarantees for Asynchronous SGD</em>.</li>
+    </ul>
+
+    <!-- Publications -->
+    <h2>Research</h2>
+    <!-- <h3>Journal Publications</h3> -->
+    <ul class="publication-list">
+        <li>
+            Y. Xie and Y. Lei. "<a href="https://icml.cc/virtual/2026/poster/62429">Sharper Generalization Guarantees for Asynchronous SGD: Beyond Lipschitzness, Smoothness and Data Homogeneity</a>". 
+            In International Conference on Machine Learning, 2026.
+        </li>
+        <li>
+            Y. Xie and Y. Lei. "<a href="https://arxiv.org/pdf/2604.00505">Towards Initialization-dependent and Non-vacuous Generalization Bounds for Overparameterized Shallow Neural Networks</a>". 
+            <em>arXiv preprint</em>, 2026.
+        </li>
+        <li>
+            Y. Xie, H. Wu, H. Tong. L. Xiao, W. Zhou and TC Wanger "<a href="https://arxiv.org/abs/2501.12487">fabSAM: A Farmland Boundary Delineation Method Based on the Segment Anything Model</a>". 
+            <em>arXiv preprint</em>, 2025.
+        </li>
+    </ul>
+
+    <!-- Academic Service -->
+    <h2>Academic Service</h2>
+    <p>Silver Reviewer at ICML 2026.<p>
+    <p><strong>Conference Reviewer:</strong> ICML 2026, NIPS 2026</p>
+    <p><strong>Journal Reviewer:</strong> <a href="https://link.springer.com/journal/10994">Machine Learning</a>, <a href="https://www.jmlr.org/tmlr/">Transactions on Machine Learning Research</a>, <a href="https://www.aimsciences.org/mfc">Mathematical Foundations of Computing</a></p>
+
+</body>
+</html>
